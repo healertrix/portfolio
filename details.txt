@@ -1,0 +1,26 @@
+name: Abhinav Kumar
+email :abhinav.webdj@gmail.com
+linkedin : https://www.linkedin.com/in/abhinav-kumar-95849a214/
+github : https://github.com/healertrix
+
+description : As a multiskilled programmer, I specialize in crafting precise and effective codes to solve complex problems with ease. I am passionate about finding simple solutions that are both efficient and effective. With a strong drive to succeed, I possess the ability to adapt to any situation, while also cultivating a growth-oriented mindset that allows me to develop both myself and others.
+
+knowledge : nodejs,nextjs,reactjs,typescript,tailwindcss,html,css,javascript,python,c++,c,java,php,mysql,mongodb,postgresql,sql,linux,bash,git,docker,redis
+
+projects : 
+{
+    name :"WatchYo",
+    link:"https://watchyo.vercel.app",
+    description: "Your ultimate entertainment hub for movies, TV shows, and anime. Search, discover, watch trailers, and stream your favorite content in the best available quality. Experience entertainment like never before",
+    techstack : "Nextjs,Tailwindcss,
+
+    ,
+
+    name:"Wedding Theory"
+    link : "https://wedding-theory.vercel.app/"
+    description:"Wedding theory trademark copyright official website of Wedding photography agency , one of the best wedding photography agency in India
+    leaders in market , provide wedding photograpy,print, music and video",
+    techstack : "Nextjs,Tailwindcss,Sanity CMS",
+}
+
+
