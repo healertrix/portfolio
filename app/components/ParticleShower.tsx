@@ -30,20 +30,15 @@ export default function ParticleShower() {
     window.addEventListener('resize', resizeCanvas);
 
     // Create particles
-    let particles: Particle[] = [];
-    const particleCount = 35; // Slightly reduced count
-    const diagonalAngle = Math.PI / 6;
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        speed: 0.3 + Math.random() * 0.7, // Slightly slower, more consistent speed
-        size: 0.5 + Math.random() * 0.8,  // Smaller size range
-        angle: diagonalAngle,
-        opacity: 0.1 + Math.random() * 0.3 // Variable opacity for depth
-      });
-    }
+    const particles = Array.from({ length: 35 }, (_, i) => ({
+      id: i,
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      speed: 0.3 + Math.random() * 0.7, // Slightly slower, more consistent speed
+      size: 0.5 + Math.random() * 0.8,  // Smaller size range
+      angle: Math.PI / 6,
+      opacity: 0.1 + Math.random() * 0.3 // Variable opacity for depth
+    }));
 
     // Animation loop
     function animate() {

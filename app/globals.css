@@ -18,3 +18,10 @@ body {
     text-wrap: balance;
   }
 }
+
+@media (max-width: 640px) {
+  .contact-links {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}

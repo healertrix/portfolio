@@ -1,6 +1,5 @@
 "use client";
 import ParticleShower from './components/ParticleShower';
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { 
@@ -117,7 +116,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className='text-2xl sm:text-3xl font-light'
             >
-              Hi, I'm{' '}
+              Hi, I&apos;m{' '}
               <span className="font-medium">Abhinav Kumar</span>{' '}
               <motion.span
                 animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
