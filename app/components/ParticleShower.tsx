@@ -2,14 +2,15 @@
 
 import { useEffect, useRef } from 'react';
 
-// interface Particle {
-//   x: number;
-//   y: number;
-//   speed: number;
-//   size: number;
-//   angle: number;
-//   opacity: number;
-// }
+interface Particle {
+  id: number;
+  x: number;
+  y: number;
+  speed: number;
+  size: number;
+  angle: number;
+  opacity: number;
+}
 
 export default function ParticleShower() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -23,29 +24,34 @@ export default function ParticleShower() {
 
     // Set canvas size to window size
     const resizeCanvas = () => {
+      if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Create particles
-    const particles = Array.from({ length: 35 }, (_, i) => ({
+    // Create particles with proper typing
+    const particles: Particle[] = Array.from({ length: 35 }, (_, i) => ({
       id: i,
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      speed: 0.3 + Math.random() * 0.7, // Slightly slower, more consistent speed
-      size: 0.5 + Math.random() * 0.8,  // Smaller size range
+      speed: 0.3 + Math.random() * 0.7,
+      size: 0.5 + Math.random() * 0.8,
       angle: Math.PI / 6,
-      opacity: 0.1 + Math.random() * 0.3 // Variable opacity for depth
+      opacity: 0.1 + Math.random() * 0.3
     }));
 
     // Animation loop
     function animate() {
+      if (!canvas || !ctx) return;
+
       ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((particle) => {
+        if (!ctx || !canvas) return;
+        
         // Create a subtle glow effect
         const gradient = ctx.createRadialGradient(
           particle.x, 
@@ -74,11 +80,11 @@ export default function ParticleShower() {
           if (Math.random() > 0.5) {
             particle.x = -10;
             particle.y = Math.random() * canvas.height * 0.5;
-            particle.opacity = 0.1 + Math.random() * 0.3; // Reset opacity
+            particle.opacity = 0.1 + Math.random() * 0.3;
           } else {
             particle.x = Math.random() * canvas.width * 0.3;
             particle.y = -10;
-            particle.opacity = 0.1 + Math.random() * 0.3; // Reset opacity
+            particle.opacity = 0.1 + Math.random() * 0.3;
           }
         }
       });
