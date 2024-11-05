@@ -2,14 +2,14 @@
 
 import { useEffect, useRef } from 'react';
 
-interface Particle {
-  x: number;
-  y: number;
-  speed: number;
-  size: number;
-  angle: number;
-  opacity: number;
-}
+// interface Particle {
+//   x: number;
+//   y: number;
+//   speed: number;
+//   size: number;
+//   angle: number;
+//   opacity: number;
+// }
 
 export default function ParticleShower() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
