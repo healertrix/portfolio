@@ -110,14 +110,13 @@ export default function Home() {
 
         <main className='max-w-6xl mx-auto px-6 pt-10 sm:pt-24'>
           <div className='flex flex-col items-center text-center gap-8 sm:gap-12'>
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className='text-2xl sm:text-3xl font-light'
             >
-              Hi, I&apos;m{' '}
-              <span className="font-medium">Abhinav Kumar</span>{' '}
+              Hi, I&apos;m <span className='font-medium'>Abhinav Kumar</span>{' '}
               <motion.span
                 animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
                 transition={{
@@ -162,7 +161,9 @@ export default function Home() {
                 className='mt-4 px-6 py-2.5 border border-gray-600 rounded-full 
                           hover:bg-white/10 transition-colors duration-300 text-sm'
               >
-                Latest Work
+                <Link href='https://wedding-theory.vercel.app/' target='_blank' rel='noopener noreferrer'>
+                  Latest Work
+                </Link>
               </motion.button>
             </div>
           </div>
@@ -199,7 +200,7 @@ export default function Home() {
                             backdrop-blur-sm hover:border-gray-700 transition-colors duration-300'
                 >
                   <div className='mb-3'>
-                    <service.Icon className="h-8 w-8 text-white" />
+                    <service.Icon className='h-8 w-8 text-white' />
                   </div>
                   <h4 className='font-bold mb-2'>{service.title}</h4>
                   <p className='text-sm text-gray-400 leading-relaxed'>
@@ -218,7 +219,7 @@ export default function Home() {
             viewport={{ once: true }}
             className='mt-24 sm:mt-32'
           >
-            <motion.h3 
+            <motion.h3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -227,7 +228,7 @@ export default function Home() {
             >
               Featured Projects
             </motion.h3>
-            
+
             <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
               {projectDetails.map((project, index) => (
                 <motion.div
@@ -252,7 +253,7 @@ export default function Home() {
                                 hover:bg-white/5 transition-all duration-300'
                     >
                       <div>
-                        <motion.h4 
+                        <motion.h4
                           className='font-bold text-xl mb-4 text-white/90
                                     group-hover:text-white transition-colors duration-300'
                         >
@@ -262,7 +263,7 @@ export default function Home() {
                           {project.description}
                         </p>
                       </div>
-                      
+
                       <div className='flex flex-wrap gap-2'>
                         {project.tech.map((tech, techIndex) => (
                           <span
