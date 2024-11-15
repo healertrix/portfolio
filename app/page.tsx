@@ -161,8 +161,12 @@ export default function Home() {
                 className='mt-4 px-6 py-2.5 border border-gray-600 rounded-full 
                           hover:bg-white/10 transition-colors duration-300 text-sm'
               >
-                <Link href='https://wedding-theory.vercel.app/' target='_blank' rel='noopener noreferrer'>
-                  Latest Work
+                <Link
+                  href='hhttps://www.weddingtheory.co.in/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  Latest Works
                 </Link>
               </motion.button>
             </div>
