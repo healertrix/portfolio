@@ -53,17 +53,35 @@ const serviceDetails = [
 
 const projectDetails = [
   {
-    title: 'WatchYo',
-    description: 'Your ultimate entertainment hub for movies, TV shows, and anime.',
-    link: 'https://watchyo.vercel.app',
-    tech: ['Next.js', 'Tailwind CSS']
+    title: 'Wedding Theory',
+    description:
+      "Developed and designed the complete digital platform for Bangalore's leading wedding photography agency. Built a custom CMS with modern features including gallery management, blog system, and admin dashboard. Implemented full-stack solution with AWS infrastructure for optimal performance.",
+    link: 'https://www.weddingtheory.co.in/',
+    tech: [
+      'Next.js',
+      'PostgreSQL',
+      'AWS S3',
+      'Custom CMS',
+      'Admin Dashboard',
+      'DevOps',
+      'UI/UX Design',
+      'Backend API',
+    ],
   },
   {
-    title: 'Wedding Theory',
-    description: 'Wedding photography agency website showcasing premium photography, print, music and video services. Leaders in the market for wedding photography in India.',
-    link: 'https://wedding-theory.vercel.app/',
-    tech: ['Next.js', 'Tailwind CSS', 'Sanity CMS']
-  }
+    title: 'WatchYo',
+    description:
+      'A modern entertainment discovery platform that serves as your ultimate movie and TV guide. Features include universal search across movies, TV shows, and anime, dynamic content discovery, personalized recommendations, and an immersive trailer preview system. Built with performance and user experience at its core.',
+    link: 'https://watchyo.vercel.app',
+    tech: [
+      'Next.js',
+      'Tailwind CSS',
+      'REST APIs',
+      'Content Discovery',
+      'Dynamic Search',
+      'Responsive Design',
+    ],
+  },
 ];
 
 export default function Home() {
@@ -172,6 +190,79 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Projects Section with fade-in animation */}
+          <motion.section
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className='mt-24 sm:mt-32'
+          >
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className='text-3xl sm:text-4xl font-bold mb-8 text-center'
+            >
+              Featured Projects
+            </motion.h3>
+
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+              {projectDetails.map((project, index) => (
+                <motion.div
+                  key={project.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className='group relative h-[320px] border border-gray-800/50 rounded-xl overflow-hidden 
+                            backdrop-blur-sm hover:border-gray-700 transition-all duration-300
+                            hover:shadow-lg hover:shadow-white/5'
+                >
+                  <Link
+                    href={project.link}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='block h-full'
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className='h-full p-8 flex flex-col justify-between 
+                                hover:bg-white/5 transition-all duration-300'
+                    >
+                      <div>
+                        <motion.h4
+                          className='font-bold text-2xl mb-4 text-white/90
+                                    group-hover:text-white transition-colors duration-300'
+                        >
+                          {project.title}
+                        </motion.h4>
+                        <p className='text-base text-gray-400 leading-relaxed mb-6'>
+                          {project.description}
+                        </p>
+                      </div>
+
+                      <div className='flex flex-wrap gap-2'>
+                        {project.tech.map((tech, techIndex) => (
+                          <span
+                            key={techIndex}
+                            className='px-4 py-1.5 text-sm bg-white/5 rounded-full 
+                                   text-gray-300 group-hover:text-white group-hover:bg-white/10
+                                   transition-colors duration-300'
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+
           {/* Services Section with stagger animation */}
           <motion.section
             initial={{ opacity: 0 }}
@@ -210,78 +301,6 @@ export default function Home() {
                   <p className='text-sm text-gray-400 leading-relaxed'>
                     {service.description}
                   </p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
-
-          {/* Projects Section with fade-in animation */}
-          <motion.section
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className='mt-24 sm:mt-32'
-          >
-            <motion.h3
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className='text-xl sm:text-2xl font-bold mb-8'
-            >
-              Featured Projects
-            </motion.h3>
-
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-              {projectDetails.map((project, index) => (
-                <motion.div
-                  key={project.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className='group relative h-[280px] border border-gray-800/50 rounded-lg overflow-hidden 
-                            backdrop-blur-sm hover:border-gray-700 transition-all duration-300'
-                >
-                  <Link
-                    href={project.link}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='block h-full'
-                  >
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className='h-full p-6 sm:p-8 flex flex-col justify-between 
-                                hover:bg-white/5 transition-all duration-300'
-                    >
-                      <div>
-                        <motion.h4
-                          className='font-bold text-xl mb-4 text-white/90
-                                    group-hover:text-white transition-colors duration-300'
-                        >
-                          {project.title}
-                        </motion.h4>
-                        <p className='text-sm text-gray-400 leading-relaxed mb-6'>
-                          {project.description}
-                        </p>
-                      </div>
-
-                      <div className='flex flex-wrap gap-2'>
-                        {project.tech.map((tech, techIndex) => (
-                          <span
-                            key={techIndex}
-                            className='px-3 py-1 text-xs bg-white/5 rounded-full 
-                                   text-gray-400 group-hover:text-gray-300
-                                   transition-colors duration-300'
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </motion.div>
-                  </Link>
                 </motion.div>
               ))}
             </div>
