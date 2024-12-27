@@ -19,7 +19,7 @@ const technologies = {
     'Framer Motion',
   ],
   backend: ['Node.js', 'Python', 'REST APIs', 'GraphQL', 'Express', 'FastAPI'],
-  data: ['PostgreSQL', 'MongoDB', 'Redis', 'AWS S3', 'Prisma', 'Sequelize'],
+  data: ['PostgreSQL', 'MongoDB', 'Redis', 'AWS S3', 'Prisma', 'Supabase'],
   devops: ['Docker', 'CI/CD', 'Linux', 'Git', 'AWS', 'Kubernetes'],
 };
 
@@ -324,37 +324,38 @@ export default function Home() {
               Tech Stack & <span className='text-gray-400'>Tools</span>
             </motion.h3>
 
-            <div className='space-y-8 max-w-5xl mx-auto px-4'>
+            <div className='space-y-12 max-w-5xl mx-auto px-4'>
               {Object.entries(technologies).map(
                 ([category, techs], categoryIndex) => (
                   <motion.div
                     key={category}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
                     viewport={{ once: true }}
                     className='relative'
                   >
-                    <div className='flex items-center gap-4 mb-3'>
+                    <div className='flex items-center gap-4 mb-6'>
                       <h4 className='text-sm font-medium text-gray-400 uppercase tracking-wider min-w-[100px]'>
                         {category}
                       </h4>
                       <div className='h-[1px] bg-gray-800 flex-grow'></div>
                     </div>
-                    <div className='flex gap-3 overflow-x-auto pb-2 scrollbar-hide'>
+                    <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3'>
                       {techs.map((tech, index) => (
                         <motion.div
                           key={tech}
                           initial={{ opacity: 0, y: 10 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.2, delay: index * 0.05 }}
-                          className='shrink-0'
+                          className='group'
                         >
                           <div
-                            className='px-4 py-2 bg-white/5 backdrop-blur-sm border border-gray-800/50 
+                            className='px-4 py-3 bg-white/5 backdrop-blur-sm border border-gray-800/50 
                                     rounded-lg text-sm text-gray-300 hover:bg-white/10 
                                     hover:border-gray-700 transition-all duration-300
-                                    hover:scale-105 transform cursor-default'
+                                    hover:scale-105 transform cursor-default
+                                    flex items-center justify-center text-center h-full'
                           >
                             {tech}
                           </div>
