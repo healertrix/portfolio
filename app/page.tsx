@@ -217,7 +217,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className='group relative h-[320px] border border-gray-800/50 rounded-xl overflow-hidden 
+                  className='group relative h-auto min-h-[320px] border border-gray-800/50 rounded-xl overflow-hidden 
                             backdrop-blur-sm hover:border-gray-700 transition-all duration-300
                             hover:shadow-lg hover:shadow-white/5'
                 >
@@ -230,7 +230,7 @@ export default function Home() {
                     <motion.div
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className='h-full p-8 flex flex-col justify-between 
+                      className='h-full p-6 sm:p-8 flex flex-col justify-between gap-4 
                                 hover:bg-white/5 transition-all duration-300'
                     >
                       <div>
