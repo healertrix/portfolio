@@ -181,7 +181,7 @@ export default function Home() {
                           hover:bg-white/10 transition-colors duration-300 text-sm'
               >
                 <Link
-                  href='hhttps://www.weddingtheory.co.in/'
+                  href='https://www.weddingtheory.co.in/'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
