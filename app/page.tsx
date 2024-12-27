@@ -15,7 +15,7 @@ const technologies = {
     'React',
     'TypeScript',
     'Tailwind',
-    'Redux',
+    'Zustand',
     'Framer Motion',
   ],
   backend: ['Node.js', 'Python', 'REST APIs', 'GraphQL', 'Express', 'FastAPI'],
@@ -319,12 +319,12 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className='text-lg sm:text-xl font-semibold mb-12 text-center'
+              className='text-xl sm:text-2xl font-medium mb-12 text-center'
             >
               Tech Stack & <span className='text-gray-400'>Tools</span>
             </motion.h3>
 
-            <div className='space-y-12 max-w-5xl mx-auto px-4'>
+            <div className='space-y-8 max-w-5xl mx-auto px-4'>
               {Object.entries(technologies).map(
                 ([category, techs], categoryIndex) => (
                   <motion.div
@@ -335,13 +335,13 @@ export default function Home() {
                     viewport={{ once: true }}
                     className='relative'
                   >
-                    <div className='flex items-center gap-4 mb-6'>
-                      <h4 className='text-sm font-medium text-gray-400 uppercase tracking-wider min-w-[100px]'>
+                    <div className='flex items-center gap-4 mb-2'>
+                      <h4 className='text-sm font-medium text-gray-400 uppercase tracking-wider min-w-[80px]'>
                         {category}
                       </h4>
                       <div className='h-[1px] bg-gray-800 flex-grow'></div>
                     </div>
-                    <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3'>
+                    <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-1.5'>
                       {techs.map((tech, index) => (
                         <motion.div
                           key={tech}
@@ -351,11 +351,10 @@ export default function Home() {
                           className='group'
                         >
                           <div
-                            className='px-4 py-3 bg-white/5 backdrop-blur-sm border border-gray-800/50 
-                                    rounded-lg text-sm text-gray-300 hover:bg-white/10 
-                                    hover:border-gray-700 transition-all duration-300
-                                    hover:scale-105 transform cursor-default
-                                    flex items-center justify-center text-center h-full'
+                            className='px-4 py-1.5 bg-white/5 backdrop-blur-sm border-none
+                                    rounded-full text-sm text-gray-300 hover:bg-white/10 
+                                    transition-colors duration-300 cursor-default
+                                    flex items-center justify-center text-center'
                           >
                             {tech}
                           </div>
