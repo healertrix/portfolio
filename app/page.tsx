@@ -185,7 +185,7 @@ export default function Home() {
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  Latest Works
+                  Latest Work
                 </Link>
               </motion.button>
             </div>
