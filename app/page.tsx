@@ -9,46 +9,45 @@ import {
   CommandLineIcon 
 } from '@heroicons/react/24/outline';
 
-const technologies = [
-  'Node.js',
-  'Next.js',
-  'React.js',
-  'TypeScript',
-  'Tailwind CSS',
-  'Python',
-  'C++',
-  'Java',
-  'PHP',
-  'MySQL',
-  'MongoDB',
-  'PostgreSQL',
-  'Linux',
-  'Docker',
-  'Redis',
-  'Git',
-];
+const technologies = {
+  frontend: [
+    'Next.js',
+    'React',
+    'TypeScript',
+    'Tailwind',
+    'Redux',
+    'Framer Motion',
+  ],
+  backend: ['Node.js', 'Python', 'REST APIs', 'GraphQL', 'Express', 'FastAPI'],
+  data: ['PostgreSQL', 'MongoDB', 'Redis', 'AWS S3', 'Prisma', 'Sequelize'],
+  devops: ['Docker', 'CI/CD', 'Linux', 'Git', 'AWS', 'Kubernetes'],
+};
 
 const serviceDetails = [
   {
-    title: 'UX & UI',
-    Icon: CursorArrowRaysIcon,
-    description: 'Designing interfaces that are intuitive and enjoyable to use.'
-  },
-  {
-    title: 'Web & Mobile App',
-    Icon: DevicePhoneMobileIcon,
-    description: 'Transforming ideas into exceptional web and mobile app experiences.'
-  },
-  {
-    title: 'Design & Creative',
-    Icon: PaintBrushIcon,
-    description: 'Crafting visually stunning designs that connect with your audience.'
-  },
-  {
-    title: 'Development',
+    title: 'Full-Stack Development',
     Icon: CommandLineIcon,
-    description: 'Bringing your vision to life with the latest technology and design trends.'
-  }
+    description:
+      'Expert in building scalable web applications with modern frameworks, RESTful APIs, and robust backend systems.',
+  },
+  {
+    title: 'Cloud & DevOps',
+    Icon: DevicePhoneMobileIcon,
+    description:
+      'AWS infrastructure setup, CI/CD pipelines, containerization, and automated deployment workflows.',
+  },
+  {
+    title: 'System Architecture',
+    Icon: CursorArrowRaysIcon,
+    description:
+      'Designing secure, scalable systems with authentication, database optimization, and microservices.',
+  },
+  {
+    title: 'UI/UX Solutions',
+    Icon: PaintBrushIcon,
+    description:
+      'Creating responsive, accessible interfaces with modern design patterns and optimal user experience.',
+  },
 ];
 
 const projectDetails = [
@@ -134,7 +133,8 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className='text-2xl sm:text-3xl font-light'
             >
-              Hi, I&apos;m <span className='font-medium'>Abhinav Kumar</span>{' '}
+              Hey there, I&apos;m{' '}
+              <span className='font-medium'>Abhinav Kumar</span>{' '}
               <motion.span
                 animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
                 transition={{
@@ -155,9 +155,9 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className='text-2xl sm:text-5xl font-bold leading-tight'
               >
-                Building{' '}
-                <span className='text-gray-400'>digital solutions</span> that
-                matter.
+                Transforming Ideas into{' '}
+                <span className='text-gray-400'>Exceptional Digital</span>{' '}
+                Experiences
               </motion.h2>
 
               <motion.p
@@ -166,8 +166,9 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.6 }}
                 className='max-w-xl mx-auto text-gray-400 leading-relaxed text-sm sm:text-base'
               >
-                I craft precise and effective code to solve complex problems
-                with simple solutions.
+                Full-stack developer passionate about crafting elegant solutions
+                to complex challenges. Turning vision into reality with clean
+                code and innovative thinking.
               </motion.p>
 
               <motion.button
@@ -278,8 +279,7 @@ export default function Home() {
               viewport={{ once: true }}
               className='text-center mb-12 text-xl sm:text-2xl font-medium'
             >
-              Collaborate with{' '}
-              <span className='text-gray-400'>brands and agencies</span>
+              Areas of <span className='text-gray-400'>Expertise</span>
             </motion.h3>
 
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
@@ -306,7 +306,7 @@ export default function Home() {
             </div>
           </motion.section>
 
-          {/* Technologies Section with stagger animation */}
+          {/* Technologies Section */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -319,25 +319,51 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className='text-lg sm:text-xl font-semibold mb-8 text-center'
+              className='text-lg sm:text-xl font-semibold mb-12 text-center'
             >
-              Technologies I Work With
+              Tech Stack & <span className='text-gray-400'>Tools</span>
             </motion.h3>
-            <div className='flex flex-wrap justify-center gap-3'>
-              {technologies.map((tech, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  whileHover={{ scale: 1.1 }}
-                  viewport={{ once: true }}
-                  className='px-4 py-2 bg-white/5 rounded-full text-xs 
-                             text-gray-300 hover:bg-white/10 transition-colors duration-300'
-                >
-                  {tech}
-                </motion.span>
-              ))}
+
+            <div className='space-y-8 max-w-5xl mx-auto px-4'>
+              {Object.entries(technologies).map(
+                ([category, techs], categoryIndex) => (
+                  <motion.div
+                    key={category}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
+                    viewport={{ once: true }}
+                    className='relative'
+                  >
+                    <div className='flex items-center gap-4 mb-3'>
+                      <h4 className='text-sm font-medium text-gray-400 uppercase tracking-wider min-w-[100px]'>
+                        {category}
+                      </h4>
+                      <div className='h-[1px] bg-gray-800 flex-grow'></div>
+                    </div>
+                    <div className='flex gap-3 overflow-x-auto pb-2 scrollbar-hide'>
+                      {techs.map((tech, index) => (
+                        <motion.div
+                          key={tech}
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.2, delay: index * 0.05 }}
+                          className='shrink-0'
+                        >
+                          <div
+                            className='px-4 py-2 bg-white/5 backdrop-blur-sm border border-gray-800/50 
+                                    rounded-lg text-sm text-gray-300 hover:bg-white/10 
+                                    hover:border-gray-700 transition-all duration-300
+                                    hover:scale-105 transform cursor-default'
+                          >
+                            {tech}
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )
+              )}
             </div>
           </motion.div>
         </main>
